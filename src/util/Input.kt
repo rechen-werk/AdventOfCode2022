@@ -7,7 +7,7 @@ import java.nio.file.Path
 class Input {
 
     companion object {
-        private val cookie: String = Files.readString(Path.of("res").resolve("cookie"))
+        private val cookie: String = Files.readString(Path.of("res").resolve(".cookie.txt"))
 
         fun get(day: Int): String {
             val input = Path.of("res").resolve("december_$day").resolve("input.txt")
@@ -40,7 +40,7 @@ class Input {
 
         private fun download(day: Int, input: Path): String {
             val link = "https://adventofcode.com/2022/day/$day/input"
-            val process = Runtime.getRuntime().exec(arrayOf("curl", "--cookie", cookie, link))
+            val process = Runtime.getRuntime().exec(arrayOf("curl", "--.cookie.txt", cookie, link))
             process.waitFor()
             val content = String(process.inputStream.readAllBytes())
             Files.createFile(input)
