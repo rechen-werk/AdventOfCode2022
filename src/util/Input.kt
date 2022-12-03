@@ -40,7 +40,7 @@ class Input {
 
         private fun download(day: Int, input: Path): String {
             val link = "https://adventofcode.com/2022/day/$day/input"
-            val process = Runtime.getRuntime().exec(arrayOf("curl", "--.cookie.txt", cookie, link))
+            val process = Runtime.getRuntime().exec(arrayOf("curl", "--cookie", cookie, link))
             process.waitFor()
             val content = String(process.inputStream.readAllBytes())
             Files.createFile(input)

@@ -11,20 +11,16 @@ class December2 : December<Int, Int> {
     private val SCISSORS = 3
 
     override fun star1(): Int =
-        Input.lines(2)
-        .map { line ->
-            val split = line.split(" ")
+        Input.lines(2).sumOf {
+            val split = it.split(" ")
             calculatePointsOnGuess(rps(split[0]), rps(split[1]))
         }
-        .sum()
 
     override fun star2(): Int =
-        Input.lines(2)
-        .map { line ->
-            val split = line.split(" ")
+        Input.lines(2).sumOf {
+            val split = it.split(" ")
             calculatePointsFromFullInstructions(rps(split[0]), ldw(split[1]))
         }
-        .sum()
 
 
     private fun calculatePointsOnGuess(player1: Int, advice: Int): Int {
