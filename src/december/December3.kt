@@ -1,6 +1,7 @@
 package december
 
 import util.Input
+import java.lang.IllegalArgumentException
 
 class December3 : December<Int, Int> {
     override fun star1(): Int = Input
@@ -22,7 +23,10 @@ class December3 : December<Int, Int> {
         }
 
     private fun mapPriority(common: Char): Int =
-        if (common in 'a'..'z') common - 'a' + 1
-        else common - 'A' + 27
+        when (common) {
+            in 'a'..'z' -> common - 'a' + 1
+            in 'A'..'Z' -> common - 'A' + 27
+            else -> throw IllegalArgumentException()
+        }
 
 }
