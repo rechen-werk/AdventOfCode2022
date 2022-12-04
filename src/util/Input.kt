@@ -7,10 +7,10 @@ import java.nio.file.Path
 class Input {
     companion object {
         private val YEAR = 2022
-        private val cookie: String = Files.readString(Path.of("res").resolve(".cookie.txt"))
+        private val cookie: String = Files.readString(Path.of("res").resolve("cookie"))
 
         fun get(day: Int): String {
-            val input = Path.of("res").resolve("december_$day").resolve("input.txt")
+            val input = Path.of("res").resolve("input_${day}.txt")
             return try {
                 Files.readString(input)
             } catch (e: IOException) {

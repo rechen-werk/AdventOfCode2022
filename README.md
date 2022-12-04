@@ -7,13 +7,13 @@ I originally wanted to do them in Java, but I was told to do them in Kotlin by m
 ## Challenges
 | Day | Challenge                                                                 |
 | --: | :------------------------------------------------------------------------ |
-|   1 | **[Calorie Counting](src/december/December1.kt)** :potato:                | 
-|   2 | **[Rock Paper Scissors](src/december/December2.kt)** :scissors:           |
-|   3 | **[Rucksack Reorganization](src/december/December3.kt)** :school_satchel: |
-|   4 | **[Camp Cleanup](src/december/December4.kt)** :broom:                     |
+|   1 | :potato: **[Calorie Counting](src/december/December1.kt)**                | 
+|   2 | :scissors: **[Rock Paper Scissors](src/december/December2.kt)**           |
+|   3 | :school_satchel: **[Rucksack Reorganization](src/december/December3.kt)** |
+|   4 | :broom: **[Camp Cleanup](src/december/December4.kt)**                     |
 
 ## Instructions
 
-Put your session-cookie for [`adventofcode.com`](https://adventofcode.com/2022) into [`res/.cookie.txt`](res/.cookie.txt) to download the files automatically when executed.
+Put your session-cookie for [`adventofcode.com`](https://adventofcode.com/2022) into [`res/cookie`](res/cookie) to download the files automatically when executed.
 
 Specify which day you want to execute in [`Master.kt`](src/Master.kt).
