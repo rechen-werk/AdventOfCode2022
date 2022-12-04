@@ -10,6 +10,7 @@ I originally wanted to do them in Java, but I was told to do them in Kotlin by m
 |   1 | **[Calorie Counting](src/december/December1.kt)** :potato:                | 
 |   2 | **[Rock Paper Scissors](src/december/December2.kt)** :scissors:           |
 |   3 | **[Rucksack Reorganization](src/december/December3.kt)** :school_satchel: |
+|   4 | **[Camp Cleanup](src/december/December4.kt)** :broom:                     |
 
 ## Instructions
 
