@@ -5,8 +5,8 @@ import java.nio.file.Files
 import java.nio.file.Path
 
 class Input {
-
     companion object {
+        private val YEAR = 2022
         private val cookie: String = Files.readString(Path.of("res").resolve(".cookie.txt"))
 
         fun get(day: Int): String {
@@ -39,7 +39,8 @@ class Input {
         }
 
         private fun download(day: Int, input: Path): String {
-            val link = "https://adventofcode.com/2022/day/$day/input"
+            Files.createDirectories(input.parent)
+            val link = "https://adventofcode.com/$YEAR/day/$day/input"
             val process = Runtime.getRuntime().exec(arrayOf("curl", "--cookie", cookie, link))
             process.waitFor()
             val content = String(process.inputStream.readAllBytes())
