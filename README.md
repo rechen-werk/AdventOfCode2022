@@ -11,6 +11,7 @@ I originally wanted to do them in Java, but I was told to do them in Kotlin by m
 |   2 | :scissors: **[Rock Paper Scissors](src/december/December2.kt)**           |
 |   3 | :school_satchel: **[Rucksack Reorganization](src/december/December3.kt)** |
 |   4 | :broom: **[Camp Cleanup](src/december/December4.kt)**                     |
+|   5 | :package: **[Supply Stacks](src/december/December5.kt)**                  |
 
 ## Instructions
 
