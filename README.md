@@ -12,7 +12,7 @@ I originally wanted to do them in Java, but I was told to do them in Kotlin by m
 |   3 | :school_satchel: **[Rucksack Reorganization](src/december/December3.kt)** |
 |   4 | :broom: **[Camp Cleanup](src/december/December4.kt)**                     |
 |   5 | :package: **[Supply Stacks](src/december/December5.kt)**                  |
-|   5 | :mobile_phone: **[Tuning Trouble](src/december/December6.kt)**            |
+|   5 | :pager: **[Tuning Trouble](src/december/December6.kt)**            |
 
 ## Instructions
 
