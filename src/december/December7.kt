@@ -3,28 +3,67 @@ package december
 import util.Input
 
 class December7 : December<Int, Int> {
-    override fun star1(): Int = 0
+    override fun star1(): Int = FileSystem.fs
+        .ldr()
+        .map { it.size }
+        .filter { it <= 100000 }
+        .sum()
 
-    override fun star2(): Int = 0
+    override fun star2(): Int = FileSystem.fs
+        .ldr()
+        .map { it.size }
+        .filter { it >= FileSystem.fs.size - 40000000 }
+        .min()
 
-    private fun buildTree() : FileTree {
-        Input.lines(7)
-    }
+    private class FileSystem {
+        companion object {
+            var fs: FileSystem
 
-    private class FileTree {
+            init {
+                val tree = FileSystem()
+                var line = 0
+                val lines = Input.lines(7)
+                while(line < lines.size) {
+                    val command = lines[line].split(" ").drop(1)
+                    if(command[0] == "cd") {
+                        tree.cd(command[1])
+                        line++
+                    } else if(command[0] == "ls") {
+                        var lsLine : List<String>
+                        while (++line < lines.size) {
+                            lsLine = lines[line].split(" ")
+                            if(lsLine[0] == "$") break
+                            if(lsLine[0] == "dir") {
+                                tree.mkdir(lsLine[1])
+                            } else {
+                                tree.touch(lsLine[1], lsLine[0].toInt())
+                            }
+                        }
+                    } else throw IllegalStateException()
+                }
+                tree.cd("/")
+                fs = tree
+            }
+        }
+
         private val root = Directory("/", null)
         private var currentDirectory = root
+        val size get() = currentDirectory.size
+
         fun cd(name: String) {
             currentDirectory = currentDirectory.cd(name)
         }
         fun ls() : List<File> = currentDirectory.ls()
-        fun ld() : List<File> = currentDirectory.ld()
+        fun ld() : List<Directory> = currentDirectory.ld()
+        fun ldr() : List<Directory> = currentDirectory.ldr()
+        fun mkdir(name: String) = currentDirectory.addDirectory(name)
+        fun touch(name: String, size: Int) = currentDirectory.addDocument(name, size)
 
-        private interface File {
+        interface File {
             val name: String
             val size: Int
         }
-        private class Directory(override val name: String, private val parent: Directory?) : File {
+        class Directory(override val name: String, private val parent: Directory?) : File {
             override val size : Int
                 get() = files.sumOf { it.size }
             private val files: ArrayList<File> = ArrayList()
@@ -40,7 +79,8 @@ class December7 : December<Int, Int> {
             }
             fun ls(): List<File> = files.toList()
             fun ld(): List<Directory> = files.filterIsInstance<Directory>()
+            fun ldr(): List<Directory> = ld().union(ld().flatMap { it.ldr() }).toList()
         }
-        private data class Document(override val name: String, override val size: Int) : File
+        data class Document(override val name: String, override val size: Int) : File
     }
 }
