@@ -12,7 +12,8 @@ I originally wanted to do them in Java, but I was told to do them in Kotlin by m
 |   3 | :school_satchel: **[Rucksack Reorganization](src/december/December3.kt)** |
 |   4 | :broom: **[Camp Cleanup](src/december/December4.kt)**                     |
 |   5 | :package: **[Supply Stacks](src/december/December5.kt)**                  |
-|   6 | :pager: **[Tuning Trouble](src/december/December6.kt)**            |
+|   6 | :pager: **[Tuning Trouble](src/december/December6.kt)**                   |
+|   7 | :computer: **[No Space Left On Device](src/december/December7.kt)**       |
 
 ## Instructions
 
