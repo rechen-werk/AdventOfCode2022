@@ -14,6 +14,7 @@ I originally wanted to do them in Java, but I was told to do them in Kotlin by m
 |   5 | :package: **[Supply Stacks](src/december/December5.kt)**                  |
 |   6 | :pager: **[Tuning Trouble](src/december/December6.kt)**                   |
 |   7 | :computer: **[No Space Left On Device](src/december/December7.kt)**       |
+|   8 | :evergreen_tree: **[Treetop Tree House](src/december/December8.kt)**      |
 
 ## Instructions
 
