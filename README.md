@@ -15,6 +15,8 @@ I originally wanted to do them in Java, but I was told to do them in Kotlin by m
 |   6 | :pager: **[Tuning Trouble](src/december/December6.kt)**                   |
 |   7 | :computer: **[No Space Left On Device](src/december/December7.kt)**       |
 
+|   9 | :knot: **[Rope Bridge](src/december/December9.kt)**                       |
+
 ## Instructions
 
 Put your session-cookie for [`adventofcode.com`](https://adventofcode.com/2022) into [`res/cookie`](res/cookie) to download the files automatically when executed.
