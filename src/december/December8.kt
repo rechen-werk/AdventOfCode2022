@@ -5,100 +5,35 @@ import util.Input
 class December8 : December<Int, Int> {
 
     override fun star1(): Int {
-        val map = Input.lines(8).map { it.toList() }
-        var ctr = 0
-        for (row in map.indices) {
-            for(col in map[row].indices){
-                var visible = false
-                if(!visible) {
-                    var curVis = true
-                    for (i in 0 until row) {
-                        if(map[i][col] >= map[row][col]) {
-                            curVis = false
-                        }
-                    }
-                    visible = curVis
-                }
-                if(!visible) {
-                    var curVis = true
-                    for (i in row + 1 until map.size) {
-                        if(map[i][col] >= map[row][col]) {
-                            curVis = false
-                        }
-                    }
-                    visible = curVis
-                }
-                if(!visible) {
-                    var curVis = true
-                    for (i in 0 until col) {
-                        if(map[row][i] >= map[row][col]) {
-                            curVis = false
-                        }
-                    }
-                    visible = curVis
-                }
-                if(!visible) {
-                    var curVis = true
-                    for (i in col + 1 until map[row].size) {
-                        if(map[row][i] >= map[row][col]) {
-                            curVis = false
-                        }
-                    }
-                    visible = curVis
-                }
-                if(visible) ctr++
-            }
-        }
-        return ctr
+        val map = Input
+            .lines(8)
+            .map { it.toList().map { it.digitToInt() } }
+
+        return map.mapIndexed{ row, v->
+            v.filterIndexed{col, elem ->
+                listOf(
+                    (0 until row).maxOfOrNull { map[it][col] } ?: -1,
+                    (row + 1 until map.size).maxOfOrNull { map[it][col] } ?: -1,
+                    (0 until col).maxOfOrNull { map[row][it] } ?: -1,
+                    (col + 1 until map[row].size).maxOfOrNull { map[row][it] } ?: -1
+                ).min() < elem
+            }.count()
+        }.sum()
+
     }
 
     override fun star2(): Int {
-        val map = Input.lines(8).map { it.toList() }
-        var score = 0
-        for (row in 1 until map.size-1) {
-            for(col in 1 until map[row].size-1){
-                var curScore = 1
-                var blocked = false
-                for (i in (0 until row).reversed()) {
-                    if(map[i][col] >= map[row][col]) {
-                        curScore *= (row-i)
-                        blocked = true
-                        break
-                    }
-                }
-                if(!blocked) curScore *= (row)
-                blocked = false
-                for (i in row + 1 until map.size) {
-                    if(map[i][col] >= map[row][col]) {
-                        curScore *= (i-row)
-                        blocked = true
-                        break
-                    }
-                }
-                if(!blocked) curScore *= (map.size-row-1)
-                blocked = false
-                for (i in (0 until col).reversed()) {
-                    if(map[row][i] >= map[row][col]) {
-                        curScore *= (col-i)
-                        blocked = true
-                        break
-                    }
-                }
-                if(!blocked) curScore *= (col)
-                blocked = false
-                for (i in col + 1 until map[row].size) {
-                    if(map[row][i] >= map[row][col]) {
-                        curScore *= (i-col)
-                        blocked = true
-                        break
-                    }
-                }
-                if(!blocked) curScore *= (map[row].size-col-1)
-                if (score < curScore) {
-                    score = curScore
-                }
-            }
-        }
-        return score
+        val map = Input
+            .lines(8)
+            .map { it.toList().map { it.digitToInt() } }
+
+        return map.mapIndexed{row, v ->
+            v.mapIndexed {col, elem ->
+                (row - ((0 until row).reversed().firstOrNull() { map[it][col] >= elem } ?: 0)) *
+                (((row + 1 until map.size).firstOrNull() { map[it][col] >= elem } ?: (map.size -1)) - row) *
+                (col - ((0 until col).reversed().firstOrNull() { map[row][it] >= elem } ?: 0)) *
+                (((col + 1 until map[row].size).firstOrNull() { map[row][it] >= elem } ?: (map[row].size -1)) - col)
+            }.max()
+        }.max()
     }
 }
