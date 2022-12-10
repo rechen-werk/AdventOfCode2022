@@ -6,8 +6,8 @@ I originally wanted to do them in Java, but I was told to do them in Kotlin by m
 
 ## Challenges
 | Day | Challenge                                                                 |
-| --: | :------------------------------------------------------------------------ |
-|   1 | :potato: **[Calorie Counting](src/december/December1.kt)**                | 
+|----:|:--------------------------------------------------------------------------|
+|   1 | :potato: **[Calorie Counting](src/december/December1.kt)**                |
 |   2 | :scissors: **[Rock Paper Scissors](src/december/December2.kt)**           |
 |   3 | :school_satchel: **[Rucksack Reorganization](src/december/December3.kt)** |
 |   4 | :broom: **[Camp Cleanup](src/december/December4.kt)**                     |
@@ -16,6 +16,7 @@ I originally wanted to do them in Java, but I was told to do them in Kotlin by m
 |   7 | :computer: **[No Space Left On Device](src/december/December7.kt)**       |
 |   8 | :evergreen_tree: **[Treetop Tree House](src/december/December8.kt)**      |
 |   9 | :knot: **[Rope Bridge](src/december/December9.kt)**                       |
+|  10 | :tv: **[Cathode-Ray Tube](src/december/December10.kt)**                   |
 
 ## Instructions
 
