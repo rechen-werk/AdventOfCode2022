@@ -17,6 +17,7 @@ I originally wanted to do them in Java, but I was told to do them in Kotlin by m
 |   8 | :evergreen_tree: **[Treetop Tree House](src/december/December8.kt)**      |
 |   9 | :knot: **[Rope Bridge](src/december/December9.kt)**                       |
 |  10 | :tv: **[Cathode-Ray Tube](src/december/December10.kt)**                   |
+|  11 | :monkey: **[Monkey in the Middle](src/december/December11.kt)**           |
 
 ## Instructions
 
